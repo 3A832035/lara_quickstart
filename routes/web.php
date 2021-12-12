@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Models\Task;
+use Illuminate\Http\Request;
+
 /**
  * 顯示所有任務
  */
@@ -49,5 +52,7 @@ Route::post('/task', function (Request $request) {
  * 刪除任務
  */
 Route::delete('/task/{task}', function (Task $task) {
-    //
+    $task->delete();
+
+    return redirect('/');
 });
